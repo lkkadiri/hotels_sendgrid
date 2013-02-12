@@ -8,7 +8,7 @@ An Application to buy and sell poolroutes
 
 * Clone the Repo:
 ```ruby
-git clone git@github.com:lkkadiri/poolroute.git
+git@github.com:lkkadiri/hotels_sendgrid.git
 ```
 
 * Create The Database
