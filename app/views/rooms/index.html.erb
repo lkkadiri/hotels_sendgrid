@@ -1,6 +1,7 @@
 <h1>Listing rooms</h1>
 
-<table>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
   <tr>
     <th>Name</th>
     <th>Bedrooms</th>
@@ -12,22 +13,23 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @rooms.each do |room| %>
-  <tr>
-    <td><%= room.name %></td>
-    <td><%= room.bedrooms %></td>
-    <td><%= room.beds %></td>
-    <td><%= room.nightly_rate %></td>
-    <td><%= room.booking_status %></td>
-    <td><%= room.hotel.name %></td>
-    <td><%= link_to 'Show', room %></td>
-    <td><%= link_to 'Edit', edit_room_path(room) %></td>
-    <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+</thead>
+<tbody>
+	<% @rooms.each do |room| %>
+	  <tr>
+	    <td><%= room.name %></td>
+	    <td><%= room.bedrooms %></td>
+	    <td><%= room.beds %></td>
+	    <td><%= room.nightly_rate %></td>
+	    <td><%= room.booking_status == true ? "Unavailable" : "Open for reservation"  %></td>
+	    <td><%= room.hotel.name %></td>
+	    <td><%= link_to 'Show', room %></td>
+	    <td><%= link_to 'Edit', edit_room_path(room) %></td>
+	    <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+ </tbody>
 </table>
-
 <br />
 
 <%= link_to 'New Room', new_room_path %>

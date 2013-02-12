@@ -2,7 +2,11 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    if(params[:hotel_id])
+     @rooms = Room.show_available(params[:hotel_id])
+    else
+     @rooms = Room.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +84,15 @@ class RoomsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+
+  def show_available
+    @rooms = Room.find_available(params[:id])
+
+    respond_to do |format|
+      format.html # show_available.html.erb
+      format.json { render json: @room }
+    end
+  end
+  
 end

@@ -1,6 +1,7 @@
 <h1>Listing hotels</h1>
 
-<table>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
   <tr>
     <th>Name</th>
     <th>City</th>
@@ -10,6 +11,8 @@
     <th></th>
     <th></th>
   </tr>
+</thead>
+<tbody>
 
 <% @hotels.each do |hotel| %>
   <tr>
@@ -22,6 +25,7 @@
     <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+ </tbody>
 </table>
 
 <br />

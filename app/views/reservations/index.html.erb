@@ -1,6 +1,7 @@
 <h1>Listing reservations</h1>
 
-<table>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
   <tr>
     <th>Check in</th>
     <th>Check out</th>
@@ -12,20 +13,22 @@
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+<tbody>
 <% @reservations.each do |reservation| %>
   <tr>
     <td><%= reservation.check_in %></td>
     <td><%= reservation.check_out %></td>
     <td><%= reservation.adults %></td>
     <td><%= reservation.children %></td>
-    <td><%= reservation.room %></td>
-    <td><%= reservation.user %></td>
+    <td><%= reservation.room.name %></td>
+    <td><%= reservation.user.first_name %> <%=reservation.user.last_name%></td>
     <td><%= link_to 'Show', reservation %></td>
     <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
     <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+ </tbody>
 </table>
 
 <br />

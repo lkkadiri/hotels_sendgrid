@@ -4,11 +4,11 @@ gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'sendgrid'
 gem 'mysql2'
 gem 'bootswatch-rails'
 gem 'devise'
-
+gem 'jquery_datepicker'
 
 # Gems used only for assets and not required
 # in production environments by default.
