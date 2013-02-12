@@ -48,14 +48,14 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Hotels", "/hotels"  %></li>
-              <li><%= link_to "Rooms", "/roomss"  %></li>
-              <li><%= link_to "Users", "/userss"  %></li>
+              <li><%= link_to "Rooms", "/rooms"  %></li>
+              <li><%= link_to "Users", "/users"  %></li>
               <li><%= link_to "Reservations", "/reservations"  %></li>
             </ul>
 			<p class="container-fluid pull-right">
 				  <% if user_signed_in? %>
 				    Signed in as <%= current_user.email %>. Not you?
-				    <%= link_to "Sign out", destroy_user_session_path, :class => "btn btn-danger",:method => :get %>
+				    <%= link_to "Sign out", destroy_user_session_path, :method => :delete , :class => "btn btn-danger" %>
 				  <% else %>
 				    <%= link_to "Sign up", new_user_registration_path,:class => "btn btn-info" %> or <%= link_to "Sign In", new_user_session_path, :class => "btn btn-success" %>
 				  <% end %>
