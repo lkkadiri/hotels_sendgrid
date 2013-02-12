@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  bedrooms: 1
+  beds: 1
+  nightly_rate: 1
+  booking_status: false
+  television: false
+  fridge: false
+  microwave: false
+  smoke_free: false
+  sauna: false
+  hotel: 
+
+two:
+  name: MyString
+  bedrooms: 1
+  beds: 1
+  nightly_rate: 1
+  booking_status: false
+  television: false
+  fridge: false
+  microwave: false
+  smoke_free: false
+  sauna: false
+  hotel: 

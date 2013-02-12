@@ -1,0 +1,61 @@
+<%= form_for(@hotel) do |f| %>
+  <% if @hotel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hotel.errors.count, "error") %> prohibited this hotel from being saved:</h2>
+
+      <ul>
+      <% @hotel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :pool %><br />
+    <%= f.check_box :pool %>
+  </div>
+  <div class="field">
+    <%= f.label :gym %><br />
+    <%= f.check_box :gym %>
+  </div>
+  <div class="field">
+    <%= f.label :hot_tub %><br />
+    <%= f.check_box :hot_tub %>
+  </div>
+  <div class="field">
+    <%= f.label :free_breakfast %><br />
+    <%= f.check_box :free_breakfast %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

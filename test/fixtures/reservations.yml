@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  check_in: 2013-02-12 12:02:25
+  check_out: 2013-02-12 12:02:25
+  adults: 1
+  children: 1
+  room: 
+  user: 
+
+two:
+  check_in: 2013-02-12 12:02:25
+  check_out: 2013-02-12 12:02:25
+  adults: 1
+  children: 1
+  room: 
+  user: 
