@@ -7,11 +7,6 @@
     <th>Beds</th>
     <th>Nightly rate</th>
     <th>Booking status</th>
-    <th>Television</th>
-    <th>Fridge</th>
-    <th>Microwave</th>
-    <th>Smoke free</th>
-    <th>Sauna</th>
     <th>Hotel</th>
     <th></th>
     <th></th>
@@ -25,12 +20,7 @@
     <td><%= room.beds %></td>
     <td><%= room.nightly_rate %></td>
     <td><%= room.booking_status %></td>
-    <td><%= room.television %></td>
-    <td><%= room.fridge %></td>
-    <td><%= room.microwave %></td>
-    <td><%= room.smoke_free %></td>
-    <td><%= room.sauna %></td>
-    <td><%= room.hotel %></td>
+    <td><%= room.hotel.name %></td>
     <td><%= link_to 'Show', room %></td>
     <td><%= link_to 'Edit', edit_room_path(room) %></td>
     <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

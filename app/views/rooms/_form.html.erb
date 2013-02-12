@@ -10,50 +10,40 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <!-- <%= f.label :hotel %><%= f.text_field :hotel %> -->
+	<%= f.select :hotel_id, Hotel.all.collect {|hotel| [ hotel.name, hotel.id ] } %>
+  </div>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %><%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :bedrooms %><br />
-    <%= f.number_field :bedrooms %>
+    <%= f.label :bedrooms %><%= f.number_field :bedrooms %>
   </div>
   <div class="field">
-    <%= f.label :beds %><br />
-    <%= f.number_field :beds %>
+    <%= f.label :beds %><%= f.number_field :beds %>
   </div>
   <div class="field">
-    <%= f.label :nightly_rate %><br />
-    <%= f.number_field :nightly_rate %>
+    <%= f.label :nightly_rate %><%= f.number_field :nightly_rate %>
   </div>
   <div class="field">
-    <%= f.label :booking_status %><br />
-    <%= f.check_box :booking_status %>
+    <%= f.label :booking_status %><%= f.check_box :booking_status %>
   </div>
   <div class="field">
-    <%= f.label :television %><br />
-    <%= f.check_box :television %>
+    <%= f.label :television %><%= f.check_box :television %>
   </div>
   <div class="field">
-    <%= f.label :fridge %><br />
-    <%= f.check_box :fridge %>
+    <%= f.label :fridge %><%= f.check_box :fridge %>
   </div>
   <div class="field">
-    <%= f.label :microwave %><br />
-    <%= f.check_box :microwave %>
+    <%= f.label :microwave %><%= f.check_box :microwave %>
   </div>
   <div class="field">
-    <%= f.label :smoke_free %><br />
-    <%= f.check_box :smoke_free %>
+    <%= f.label :smoke_free %><%= f.check_box :smoke_free %>
   </div>
   <div class="field">
-    <%= f.label :sauna %><br />
-    <%= f.check_box :sauna %>
-  </div>
-  <div class="field">
-    <%= f.label :hotel %><br />
-    <%= f.text_field :hotel %>
+    <%= f.label :sauna %><%= f.check_box :sauna %>
   </div>
   <div class="actions">
     <%= f.submit %>
