@@ -12,13 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :check_in %><br />
-    <%= f.datetime_select :check_in %>
-  </div>
+  	<%= f.label :check_in %><br />
+  	<%= f.date_select :check_in %><br />
+  <div>
   <div class="field">
-    <%= f.label :check_out %><br />
-    <%= f.datetime_select :check_out %>
-  </div>
+  	<%= f.label :check_out %><br />
+  	<%= f.date_select :check_out %><br />
+  <div>
+
   <div class="field">
     <%= f.label :adults %><br />
     <%= f.number_field :adults %>
@@ -32,4 +33,11 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<script>
+$(function() {
+$( "#reservation_check_in" ).datepicker();
+$( "#reservation_check_out" ).datepicker();
+});
+</script>
+
 <% end %>

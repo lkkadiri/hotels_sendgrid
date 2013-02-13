@@ -8,8 +8,13 @@ gem 'sendgrid'
 gem 'mysql2'
 gem 'bootswatch-rails'
 gem 'devise'
-gem 'jquery_datepicker'
+gem 'bootstrap-datepicker-rails'
 
+group :development,:test do
+  gem 'factory_girl_rails'
+  gem "shoulda-matchers"
+  gem 'rspec-rails', "~> 2.0"
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

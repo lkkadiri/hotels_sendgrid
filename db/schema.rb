@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20130212193427) do
   end
 
   create_table "reservations", :force => true do |t|
-    t.datetime "check_in"
-    t.datetime "check_out"
+    t.date     "check_in"
+    t.date     "check_out"
     t.integer  "adults"
     t.integer  "children"
     t.integer  "room_id"
