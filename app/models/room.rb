@@ -6,8 +6,6 @@ class Room < ActiveRecord::Base
   
   
   def self.show_available(hotel_id)
-    
-    p hotel_id
-    rooms = Room.find(:all, :conditions =>{:hotel_id => hotel_id, :booking_status => false })
+      rooms = Room.find(:all, :conditions =>{:hotel_id => hotel_id })
   end
 end

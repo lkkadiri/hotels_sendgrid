@@ -7,7 +7,6 @@
     <th>Bedrooms</th>
     <th>Beds</th>
     <th>Nightly rate</th>
-    <th>Booking status</th>
     <th>Hotel</th>
     <th></th>
   </tr>
@@ -19,7 +18,6 @@
 	    <td><%= room.bedrooms %></td>
 	    <td><%= room.beds %></td>
 	    <td><%= room.nightly_rate %></td>
-	    <td><%= room.booking_status == true ? "Unavailable" : "Open for reservation"  %></td>
 	    <td><%= room.hotel.name %></td>
 	    <td><%= link_to 'More Info', room,:class =>"btn btn-info" %></td>
 	    <!-- <td><%= link_to 'Edit', edit_room_path(room) %></td> -->

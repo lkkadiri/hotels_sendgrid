@@ -8,7 +8,7 @@
     <th>Adults</th>
     <th>Children</th>
     <th>Room</th>
-    <th>User</th>
+    <th>Hotel</th>
     <th></th>
     <th></th>
   </tr>
@@ -21,7 +21,7 @@
     <td><%= reservation.adults %></td>
     <td><%= reservation.children %></td>
     <td><%= reservation.room.name %></td>
-    <td><%= reservation.user.first_name %> <%=reservation.user.last_name%></td>
+    <td><%= reservation.room.hotel.name %></td>
     <td><%= link_to 'More Info', reservation, :class =>"btn btn-info" %></td>
     <!-- <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td> -->
     <td><%= link_to 'Cancel Reservation', reservation, :class =>"btn btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %></td>

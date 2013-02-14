@@ -35,3 +35,5 @@ Once a user has rooms that belong to a Hotel, they can start making reservations
 A User cannot book a room when it is occupied.
 
 The user can also cancel reservations and an email is sent to notify the user of the cancellations.
+
+Clicking on the Rooms link in the Navbar shows all the rooms, but when a user clicks on the Hotel and then clicks the Show Available rooms, the rooms that belong to the Hotel are only shown.
