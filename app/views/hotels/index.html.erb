@@ -8,8 +8,6 @@
     <th>State</th>
     <th>Website</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
@@ -20,9 +18,9 @@
     <td><%= hotel.city %></td>
     <td><%= hotel.state %></td>
     <td><%= hotel.website %></td>
-    <td><%= link_to 'Show', hotel %></td>
-    <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
-    <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', hotel,:class =>"btn btn-info" %></td>
+    <!-- <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
+        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
   </tr>
 <% end %>
  </tbody>
@@ -30,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New Hotel', new_hotel_path %>
+<%= link_to 'New Hotel', new_hotel_path,:class =>"btn btn-warning" %>

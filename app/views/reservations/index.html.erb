@@ -11,7 +11,6 @@
     <th>User</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
@@ -23,9 +22,9 @@
     <td><%= reservation.children %></td>
     <td><%= reservation.room.name %></td>
     <td><%= reservation.user.first_name %> <%=reservation.user.last_name%></td>
-    <td><%= link_to 'Show', reservation %></td>
-    <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-    <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'More Info', reservation, :class =>"btn btn-info" %></td>
+    <!-- <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td> -->
+    <td><%= link_to 'Cancel Reservation', reservation, :class =>"btn btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
  </tbody>

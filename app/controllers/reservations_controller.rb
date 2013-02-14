@@ -46,6 +46,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(params[:reservation])
 
     if @reservation.save
+      # Deliver the signup_email
+      Notifier.reservation_email(current_user,@reservation[:room_id]).deliver
+      
       flash[:notice] = 'Reservation was successfully created.'
       respond_with(@reservation)
     else

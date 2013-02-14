@@ -10,8 +10,6 @@
     <th>Booking status</th>
     <th>Hotel</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
@@ -23,13 +21,13 @@
 	    <td><%= room.nightly_rate %></td>
 	    <td><%= room.booking_status == true ? "Unavailable" : "Open for reservation"  %></td>
 	    <td><%= room.hotel.name %></td>
-	    <td><%= link_to 'Show', room %></td>
-	    <td><%= link_to 'Edit', edit_room_path(room) %></td>
-	    <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    <td><%= link_to 'More Info', room,:class =>"btn btn-info" %></td>
+	    <!-- <td><%= link_to 'Edit', edit_room_path(room) %></td> -->
+	    <!-- <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
 	  </tr>
 	<% end %>
  </tbody>
 </table>
 <br />
 
-<%= link_to 'New Room', new_room_path %>
+<%= link_to 'New Room', new_room_path,:class =>"btn btn-warning" %>
