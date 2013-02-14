@@ -39,3 +39,5 @@ The user can also cancel reservations and an email is sent to notify the user of
 Clicking on the Rooms link in the Navbar shows all the rooms, but when a user clicks on the Hotel and then clicks the Show Available rooms, the rooms that belong to the Hotel are only shown.
 
 A User can only view their own reservations.
+
+A User needs to signup and sign in to make more Hotels and Rooms.

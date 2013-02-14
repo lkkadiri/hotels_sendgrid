@@ -27,5 +27,6 @@
 </table>
 
 <br />
-
+<% if user_signed_in? %>
 <%= link_to 'New Hotel', new_hotel_path,:class =>"btn btn-warning" %>
+<% end %>

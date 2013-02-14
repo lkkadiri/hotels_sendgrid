@@ -28,4 +28,6 @@
 </table>
 <br />
 
+<% if user_signed_in? %>
 <%= link_to 'New Room', new_room_path,:class =>"btn btn-warning" %>
+<% end %>
