@@ -1,8 +1,11 @@
 class ReservationsController < ApplicationController
+  before_filter :authenticate_user!
+  respond_to :html
+  
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.user_reservations(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -39,19 +42,15 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
+    format_dates
     @reservation = Reservation.new(params[:reservation])
-    if (Reservation.is_reserved(params[:reservation][:room_id], params[:check_in], params[:check_out]) == true)
-      debugger
-    end
 
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render json: @reservation, status: :created, location: @reservation }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
+    if @reservation.save
+      flash[:notice] = 'Reservation was successfully created.'
+      respond_with(@reservation)
+    else
+      flash[:error] = 'The date you requested is taken'
+      redirect_to :back
     end
   end
 
@@ -82,4 +81,12 @@ class ReservationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def format_dates
+    params[:reservation][:check_in] = (Date.strptime(params[:reservation][:check_in], '%m/%d/%Y')).to_date
+    params[:reservation][:check_out] = (Date.strptime(params[:reservation][:check_out], '%m/%d/%Y')).to_date
+  end
+  
 end

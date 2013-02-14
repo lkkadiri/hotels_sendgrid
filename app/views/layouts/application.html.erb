@@ -6,37 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Hotel Reservation System" %></title>
     <%= csrf_meta_tags %>
-	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" %>
-	<!-- <%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" %> -->
-	<%= javascript_include_tag "http://code.jquery.com/jquery-1.8.3.js" %>
-	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.0/jquery-ui.js" %>
-	<%= javascript_include_tag "application" %>	
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
-
+		<%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
 
@@ -53,12 +28,11 @@
             <ul class="nav">
               <li><%= link_to "Hotels", "/hotels"  %></li>
               <li><%= link_to "Rooms", "/rooms"  %></li>
-              <li><%= link_to "Users", "/users"  %></li>
               <li><%= link_to "Reservations", "/reservations"  %></li>
             </ul>
 			<p class="container-fluid pull-right">
 				  <% if user_signed_in? %>
-				    Signed in as <%= current_user.email %>. Not you?
+				    Signed in as <%= link_to current_user.email, user_path(current_user) %>. Not you?
 				    <%= link_to "Sign out", destroy_user_session_path, :method => :delete , :class => "btn btn-danger" %>
 				  <% else %>
 				    <%= link_to "Sign up", new_user_registration_path,:class => "btn btn-info" %> or <%= link_to "Sign In", new_user_session_path, :class => "btn btn-success" %>
@@ -76,13 +50,19 @@
 	          <div class="well sidebar-nav">
 	            <ul class="nav nav-list">
 	              <li class="nav-header">QuickLinks</li>
-	              <li><%= link_to "Hotels", "/hotels"  %></li>
-	              <li><%= link_to "Users", "/users"  %></li>
+	              <li><%= link_to "Hotels", hotels_path  %></li>
+	              <li><%= link_to "Reservations", reservations_path  %></li>
 	            </ul>
 	          </div><!--/.well -->
 	        </div><!--/span-->
 		<% end %>
         <div class="span9">
+					<%- flash.each do |name, msg| %>
+						<div class="alert alert-<%=name.to_s == 'notice' ? 'success' : name%>">
+							<a class="close" data-dismiss="alert" href="#">&times;</a> 
+							<%= msg %>
+						</div>
+					<% end %>
           <%= yield %>
         </div>
       </div><!--/row-->
@@ -92,11 +72,6 @@
       </footer>
 
     </div> <!-- /container -->
-
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
 
   </body>
 </html>

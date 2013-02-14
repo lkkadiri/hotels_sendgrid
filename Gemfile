@@ -10,6 +10,7 @@ gem 'bootswatch-rails'
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
 
+
 group :development,:test do
   gem 'factory_girl_rails'
   gem "shoulda-matchers"

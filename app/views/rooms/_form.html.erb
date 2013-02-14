@@ -18,16 +18,13 @@
     <%= f.label :name %><%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :bedrooms %><%= f.number_field :bedrooms %>
+    <%= f.label :bedrooms %><%= f.number_field :bedrooms, :min => 1 %>
   </div>
   <div class="field">
-    <%= f.label :beds %><%= f.number_field :beds %>
+    <%= f.label :beds %><%= f.number_field :beds, :min => 1 %>
   </div>
   <div class="field">
     <%= f.label :nightly_rate %><%= f.number_field :nightly_rate %>
-  </div>
-  <div class="field">
-    <%= f.label :booking_status %><%= f.check_box :booking_status %>
   </div>
   <div class="field">
     <%= f.label :television %><%= f.check_box :television %>
