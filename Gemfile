@@ -5,15 +5,16 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sendgrid'
-gem 'sqlite3'
 gem 'mysql2'
 gem 'bootswatch-rails'
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
-gem 'pg'
 gem 'thin'
-
+group :production do
+  gem 'pg'
+end  
 group :development,:test do
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem "shoulda-matchers"
   gem 'rspec-rails', "~> 2.0"
