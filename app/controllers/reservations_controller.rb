@@ -78,7 +78,8 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-
+    flash[:notice] = 'Reservation was successfully cancelled.'
+    Notifier.cancellation_email(current_user).deliver
     respond_to do |format|
       format.html { redirect_to reservations_url }
       format.json { head :no_content }
