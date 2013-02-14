@@ -48,15 +48,14 @@ ActiveRecord::Schema.define(:version => 20130212193427) do
     t.integer  "bedrooms"
     t.integer  "beds"
     t.integer  "nightly_rate"
-    t.boolean  "booking_status"
     t.boolean  "television"
     t.boolean  "fridge"
     t.boolean  "microwave"
     t.boolean  "smoke_free"
     t.boolean  "sauna"
     t.integer  "hotel_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "rooms", ["hotel_id"], :name => "index_rooms_on_hotel_id"

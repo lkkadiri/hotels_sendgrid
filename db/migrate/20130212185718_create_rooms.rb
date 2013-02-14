@@ -5,7 +5,6 @@ class CreateRooms < ActiveRecord::Migration
       t.integer :bedrooms
       t.integer :beds
       t.integer :nightly_rate
-      t.boolean :booking_status
       t.boolean :television
       t.boolean :fridge
       t.boolean :microwave

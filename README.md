@@ -1,8 +1,7 @@
 # Hotel Reservation System
 
 
-An Application to buy and sell poolroutes
-
+An Application to make Hotel reservations.
 
 ## Installation:
 
@@ -25,36 +24,14 @@ rake db:migrate
 rails s
 ```
 
-#Production devise settings
+## Application features:
 
-Some setup you must do manually if you haven't yet:
+User can create as many Hotels as needed.
 
-  1. Ensure you have defined default url options in your environments files. Here 
-     is an example of default_url_options appropriate for a development environment 
-     in config/environments/development.rb:
+User can create as many rooms belonging to each of the Hotels as needed.
 
-       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+Once a user has rooms that belong to a Hotel, they can start making reservations on individual rooms. The system sends an email to the user once they make a reservation confirming the Hotel name and the Room name.
 
-     In production, :host should be set to the actual host of your application.
+A User cannot book a room when it is occupied.
 
-  2. Ensure you have defined root_url to *something* in your config/routes.rb.
-     For example:
-
-       root :to => "home#index"
-
-  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
-     For example:
-
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
-  4. If you are deploying Rails 3.1+ on Heroku, you may want to set:
-
-       config.assets.initialize_on_precompile = false
-
-     On config/application.rb forcing your application to not access the DB
-     or load models when precompiling your assets.
-
-  5. You can copy Devise views (for customization) to your app by running:
-
-       rails g devise:views
+The user can also cancel reservations and an email is sent to notify the user of the cancellations.
