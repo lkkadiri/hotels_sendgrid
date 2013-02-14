@@ -10,7 +10,8 @@ gem 'mysql2'
 gem 'bootswatch-rails'
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
-
+gem 'pg'
+gem 'thin'
 
 group :development,:test do
   gem 'factory_girl_rails'
