@@ -40,6 +40,9 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
+    if (Reservation.is_reserved(params[:reservation][:room_id], params[:check_in], params[:check_out]) == true)
+      debugger
+    end
 
     respond_to do |format|
       if @reservation.save
