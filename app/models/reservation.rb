@@ -2,7 +2,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :room
   belongs_to :user
   attr_accessible :adults, :check_in, :check_out, :children, :user_id, :room_id
-  validates_with Availability
+  validates_with Availability, DateValidate
   
   
   def self.user_reservations(user)

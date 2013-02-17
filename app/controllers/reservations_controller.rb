@@ -52,8 +52,9 @@ class ReservationsController < ApplicationController
       flash[:notice] = 'Reservation was successfully created.'
       respond_with(@reservation)
     else
-      flash[:error] = 'The date you requested is taken, You can either check for other dates or check for other rooms maybe available. We Apologize for the inconvinience.'
+      flash[:error] = @reservation.errors[:base].to_sentence
       redirect_to :back
+      @reservation.errors.clear
     end
   end
 
