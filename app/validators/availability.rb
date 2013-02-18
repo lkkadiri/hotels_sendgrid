@@ -4,8 +4,8 @@ class Availability < ActiveModel::Validator
     room = rooms.find { |room| room.id == record.room_id }
     if room.nil?
       record.errors.clear
-      record.errors[:base] << 'The date you requested is taken, You can either check for other dates or check for other rooms maybe available. We Apologize for the inconvinience.'
-      #send email
+      record.errors.add :base, 'The date you requested is taken, You can either check for other dates or check for other rooms maybe available. We Apologize for the inconvinience.'
+      false
     end
   end
 end
