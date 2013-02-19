@@ -19,6 +19,12 @@ rake db:create
 ```ruby
 rake db:migrate
 ```
+
+* Seed the Admin user
+```ruby
+rake db:seed
+```
+
 * Run the application
 ```ruby
 rails s
