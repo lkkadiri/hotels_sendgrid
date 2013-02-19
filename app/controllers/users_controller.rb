@@ -97,7 +97,7 @@ class UsersController < ApplicationController
         format.json { head :no_content }
       end
    else
-     flash[:notice] = 'You do not have Admin rights to update a user'
+     flash[:notice] = 'You do not have Admin rights to delete a user'
      redirect_to home_index_path
    end
   end  
