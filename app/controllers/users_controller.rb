@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+    if current_user && current_user.admin? 
+      @users = User.all
+      respond_with users_path
+    else
+      flash[:notice] = 'You do not have rights to see the list of users.'
+      redirect_to home_index_path
     end
   end
 
@@ -17,16 +18,11 @@ class UsersController < ApplicationController
   def show
     if current_user && current_user.admin? 
       @user = User.find(params[:id])
-
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @user }
-      end
+      respond_with user_path(@user)
     else
       flash[:notice] = 'You do not have Admin see users information'
       redirect_to :back
     end
-    
   end
 
   # GET /users/new
@@ -35,19 +31,21 @@ class UsersController < ApplicationController
     if current_user && current_user.admin? 
       @user = User.new
       respond_with(@user)  
-       # respond_to do |format|
-       #   format.html # new.html.erb
-       #   format.json { render json: @user }
-       # end
     else
       flash[:notice] = 'You do not have Admin rights to create a user'
-      redirect_to :back
+      redirect_to users_path
     end
   end
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    if current_user && current_user.admin? 
+      @user = User.find(params[:id])
+      respond_with edit_user_path(@user)
+    else
+      flash[:notice] = 'You do not have Admin rights to edit a user'
+      redirect_to users_path
+    end
   end
 
   # POST /users
@@ -55,13 +53,12 @@ class UsersController < ApplicationController
   def create
     if current_user && current_user.admin? 
       @user = User.new(params[:user])
-      respond_to do |format|
-        if @user.save
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
-          format.json { render json: @user, status: :created, location: @user }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+      if @user.save
+        flash[:notice] = 'User was successfully created.'
+        redirect_to user_path(@user)
+      else
+        respond_with(@user.errors, :status => :unprocessable_entity) do |format|
+                format.html { render :action => :new }
         end
       end
     else
@@ -73,27 +70,35 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
-    respond_to do |format|
+    if current_user && current_user.admin? 
+      @user = User.find(params[:id])
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        flash[:notice] = 'User was successfully created.'
+        redirect_to user_path(@user)
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        respond_with(@user.errors, :status => :unprocessable_entity) do |format|
+                format.html { render :action => :new }
+        end
       end
+    else
+      flash[:notice] = 'You do not have Admin rights to update a user'
+      redirect_to users_path
     end
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+    if current_user && current_user.admin? 
+      @user = User.find(params[:id])
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+      end
+   else
+     flash[:notice] = 'You do not have Admin rights to update a user'
+     redirect_to home_index_path
+   end
   end  
 end
