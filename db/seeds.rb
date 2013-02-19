@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user =User.create(:email => 'admin@leela.com', :password => 'admin123', :password_confirmation => 'admin123', :first_name => 'Admin', :last_name => 'Admin',:admin => true) 
+user =User.create(:email => 'admin@hotelsendgrid.com', :password => 'admin123', :password_confirmation => 'admin123', :first_name => 'Admin', :last_name => 'Admin',:admin => true) 
 user.save!
