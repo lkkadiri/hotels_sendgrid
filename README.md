@@ -4,7 +4,7 @@
 
 An Application to make Hotel reservations.
 
-## Installation:
+# Installation:
 
 * Clone the Repo:
 ```ruby
