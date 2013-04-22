@@ -1,4 +1,5 @@
 # Hotel Reservation System
+<img src="http://img515.imageshack.us/img515/1358/guardicon.png" alt="Guard Icon" align="right" />
 
 
 An Application to make Hotel reservations.
